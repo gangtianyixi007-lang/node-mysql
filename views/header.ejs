@@ -10,6 +10,11 @@
         <li class="nav-item">
           <a class="nav-link" href="/logout">ログアウト</a>
         </li>
+        <li class="nav-item">
+          <form action="/delete-account" method="post" class="d-inline">
+            <button class="btn btn-link nav-link" type="submit" onclick="return confirm('登録を解除しますか？');">登録解除</button>
+          </form>
+        </li>
       <% }else{ %>
         <li class="nav-item">
           <a class="nav-link" href="/signin">サインイン</a>
