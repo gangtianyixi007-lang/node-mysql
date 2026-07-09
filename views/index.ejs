@@ -19,17 +19,26 @@
         </form>
       </div>
       <div class="col-md-6">
-        <ul>
+        <div class="mb-3">
+          <h5 class="mb-0">Todo一覧</h5>
+        </div>
+        <ul class="list-unstyled">
           <% for(let todo of todos){ %>
-            <li><span><%= todo.content %></span></li>
+            <li class="d-flex justify-content-between align-items-center mb-2">
+              <span><%= todo.content %></span>
+              <form action="/delete" method="post" class="mb-0">
+                <input type="hidden" name="id" value="<%= todo.id %>"/>
+                <button class="btn btn-success btn-sm" type="submit">達成！</button>
+              </form>
+            </li>
           <% } %>
         </ul>
       </div>
     </div>
   </div>
   <% } else { %>
-    <h1>Welcome to the TodoApp</h1>
-    <a class="btn btn-primary" href="/signup" role="button">Sign up now!</a>
+    <h1>ようこそ TodoApp へ!!</h1>
+    <a class="btn btn-primary" href="/signup" role="button">今すぐ登録!!</a>
   <% } %>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
           integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
